@@ -39,15 +39,18 @@ class Money {
 
     // 定期収入/支出
     function calculation(i,j) {
+      weeks[i][j].change = 0;
       setting.hiMoney.receipts.map((receipt)=>{
         switch (receipt.frequency) {
           case "date":
             currentMoney += receipt.sum;
+            weeks[i][j].change += receipt.sum;
             break;
           case "week":
             receipt.num.map((value)=>{
               if (value == j) {
                 currentMoney += receipt.sum;
+                weeks[i][j].change += receipt.sum;
               }
             })
             break;
@@ -55,6 +58,7 @@ class Money {
             receipt.num.map((value)=>{
               if (value == weeks[i][j].date) {
                 currentMoney += receipt.sum;
+                weeks[i][j].change += receipt.sum;
               }
             })
             break;
@@ -62,8 +66,20 @@ class Money {
             receipt.num.map((value)=>{
               if (value[0] == month && value[1] == weeks[i][j].date) {
                 currentMoney += receipt.sum;
+                weeks[i][j].change += receipt.sum;
               }
             })
+            break;
+          default:
+            return false
+        }
+        console.log(weeks[i][j].change);
+        switch (Math.sign(weeks[i][j].change)) {
+          case -1:
+            weeks[i][j].color = 'red';
+            break
+          case 1:
+            weeks[i][j].color = 'green';
             break;
         }
       });

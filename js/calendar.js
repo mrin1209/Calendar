@@ -75,12 +75,25 @@ class Calendar {
         date.appendChild(dateNum);
 
         // 金額
+        let moneyBox = document.createElement('p');
+        moneyBox.className = 'money';
+
+        // 増減額
+        let changeMoney = document.createElement('p');
+        if (date.className != 'other') {
+          changeMoney.textContent = weeks[i][j].change ? `${weeks[i][j].change}円` : "";
+        }
+        changeMoney.className = weeks[i][j].color;
+        moneyBox.appendChild(changeMoney);
+
+        // 所持金
         let dateMoney = document.createElement('p');
         if (date.className != 'other') {
           dateMoney.textContent = weeks[i][j].money ? `${weeks[i][j].money}円` : "0円";
         }
-        dateMoney.className = 'money'
-        date.appendChild(dateMoney);
+        moneyBox.appendChild(dateMoney);
+
+        date.appendChild(moneyBox);
       }
     }
     // 年月表示

@@ -21,6 +21,13 @@ class Setting {
           ],
           sum:200, //金額 支出ならマイナス値
         },
+        {
+          frequency:"week", //頻度
+          num:[
+            [3],
+          ],
+          sum:-500, //金額 支出ならマイナス値
+        },
       ],
       record:{},
     }

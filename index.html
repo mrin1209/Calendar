@@ -2,140 +2,50 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
   <link rel="stylesheet" href="css/destyle.css">
   <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/responsive.css">
-  <link rel="shortcut icon" href="img/icon.svg">
-  <title>メモリスト</title>
+  <title>カレンダー</title>
 </head>
-<body class="lightMode">
-  <!-- ハンバーガーメニュー -->
-  <div class="hamburger">
-    <span class="hamburger_bar"></span>
-    <span class="hamburger_bar"></span>
-    <span class="hamburger_bar"></span>
-  </div>
-      
-  <!-- ヘッダー -->
-  <header>
-    <div class="addOther">
-      <!-- タイトルロゴ -->
-      <div class="title">
-        <img src="img/icon.svg" class="icon">
-        <a href="#">To Do List</a>
-      </div>
-      
-      <!-- メモ追加バー -->
-      <div class="addBox">
-        <input type="text" class="addInput addBtn" placeholder="メモを追加！" readonly>
-      </div>
-
-      <!-- ボタンメニュー -->
-      <ul class="btnList">
-        <li class="deleteBtn">
-          <i class="fa-solid fa-trash-can"></i>
-          <span class="tooltip">チェック済みを削除</span>
-        </li>
-        <li class="expireBtn">
-          <i class="fa-solid fa-calendar"></i>
-          <span class="tooltip">期限切れメモを削除</span>
-        </li>
-        <li class="addBtn">
-          <i class="fa-solid fa-plus"></i>
-          <span class="tooltip">メモを追加</span>
-        </li>
-      </ul>
-    </div>
-  </header>
-
-  <main>
-    <!-- メニュー -->
-    <div class="filterMenu">
-      <p class="filterTitle">メモ</p>
-      <p class="filterSelect selection" id="filterAll"><i class="fa-solid fa-pen"></i> すべてのメモ</p>
-      <p class="filterTitle">優先度</p>
-      <p class="filterSelect" id="filterHigh">高</p>
-      <p class="filterSelect" id="filterStandard">中</p>
-      <p class="filterSelect" id="filterLow">低</p>
-      <div class="partition"></div>
-      <p class="filterSelect"><i class="fa-solid fa-list-check"></i> 完了済みメモ</p>
-      <p class="filterSelect"><i class="fa-solid fa-calendar"></i> 期限切れメモ</p>
-      <p class="filterSelect"><i class="fa-solid fa-trash-can"></i> 削除済みメモ</p>
-    </div>
-
-    <!-- メモ追加 -->
-    <div class="addMode">
-      <div class="blurContainer addOther">
-        <input type="text" class="addInput addClose addTitle" placeholder="タイトル">
-        <input type="submit" class="addSubmit" value="+">
-        <textarea class="addText addClose" placeholder="メモ"></textarea>
-        <div class="memoBtnList">
-          <div class="memoLimit">
-            <input type="date" class="addLimit addClose">
-            <p>まで</p>
-          </div>
-          <div class="memoPriority">
-            <p>優先度：</p>
-            <form id="addPriorityBtnList">
-              <input type="radio" name="addPriority" id="addhigh" value="high">
-              <label for="addhigh">高</label>
-              <input type="radio" name="addPriority" id="addstandard" value="standard" checked>
-              <label for="addstandard">中</label>
-              <input type="radio" name="addPriority" id="addlow" value="low">
-              <label for="addlow">低</label>
-            </form>
-          </div>
-        </div>
-        <p class="errorMessage"></p>
-      </div>
-    </div>
-
-    <!-- メモを編集 -->
-    <div class="editMode">
-      <div class="blurContainer">
-        <div class="editOther">
-          <input type="text" class="editTitle" placeholder="タイトル">
-          <textarea class="editText" placeholder="メモ"></textarea>
-          <div class="editBtn"></div>
-          <div class="memoBtnList">
-            <div class="memoLimit">
-              <input type="date" class="editLimit">
-              <p>まで</p>
-            </div>
-            <div class="memoPriority">
-              <p>優先度：</p>
-              <form id="editPriorityBtnList">
-                <input type="radio" name="editpriority" id="edithigh" value="high">
-                <label for="edithigh">高</label>
-                <input type="radio" name="editpriority" id="editstandard" value="standard">
-                <label for="editstandard">中</label>
-                <input type="radio" name="editpriority" id="editlow" value="low">
-                <label for="editlow">低</label>
-              </form>
-            </div>
-          </div>
-        </div>
-        <p class="errorMessage"></p>
-      </div>
-    </div>
-
-    <!-- メモリスト -->
-    <div class="memoBox">
-      <div class="partition">重要なメモ</div>
-      <ul class="memoList" id="high"></ul>
-  
-      <div class="partition">メモ</div>
-      <ul class="memoList" id="standard"></ul>
-  
-      <div class="partition">いつでも</div>
-      <ul class="memoList" id="low"></ul>
-    </div>
-
-  </main>
-  <p class="footer">ToDoList</p>
-  <script src="js/script.js"></script>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th class="prev">&laquo;</th>
+        <th class="title" colspan="5"></th>
+        <th class="next">&raquo;</th>
+      </tr>
+      <tr>
+        <th>S</th>
+        <th>M</th>
+        <th>T</th>
+        <th>W</th>
+        <th>T</th>
+        <th>F</th>
+        <th>S</th>
+      </tr>
+    </thead>
+    <tbody class="dateList">
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th colspan="2" class="btn">+</th>
+        <th colspan="2" class="btn">+</th>
+        <th colspan="2" class="btn">+</th>
+        <th colspan="2" class="btn">-</th>
+      </tr>
+    </tfoot>
+  </table>
+  <script src="js/setting.js"></script>
+  <script src="js/money.js"></script>
+  <script src="js/calendar.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

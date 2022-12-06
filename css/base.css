@@ -76,3 +76,11 @@ td:hover {
   font-size: 10px;
   opacity: 0.5;
 }
+
+.green {
+  color: rgb(47, 255, 75);
+}
+
+.red {
+  color: red;
+}
