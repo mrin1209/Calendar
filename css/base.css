@@ -35,6 +35,7 @@ thead, tfoot {
 }
 
 td,th,span {
+  position: relative;
   text-align: center;
   line-height: 50px;
   width: calc(100% / 7);
@@ -70,5 +71,8 @@ td:hover {
 
 .money {
   position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
   opacity: 0.5;
 }
