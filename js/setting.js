@@ -28,18 +28,18 @@ class Setting {
     */
     this.hiMoney = {
       startMoney:0, //開始日の所持金
-      startDate:20221105, //開始日
+      startDate:20221100, //開始日
       // 定期
       receipts:[ //収入　支出
         {
           frequency:"month", //頻度
-          num:[10],
+          num:[1],
           sum:5000, //金額 支出ならマイナス値
         },
         {
           frequency:"week", //頻度
           num:[3],
-          sum:-250, //金額 支出ならマイナス値
+          sum:-500, //金額 支出ならマイナス値
         },
       ],
       record:{},
