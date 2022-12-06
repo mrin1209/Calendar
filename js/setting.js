@@ -28,7 +28,7 @@ class Setting {
     */
     this.hiMoney = {
       startMoney:0, //開始日の所持金
-      start:20221105, //開始日
+      startDate:20221105, //開始日
       // 定期
       receipts:[ //収入　支出
         {

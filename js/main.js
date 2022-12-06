@@ -5,8 +5,8 @@ const toDate =  today.getDate();
 let year = toYear;
 let month = toMonth;
 let weeks;
-let loadYear = String(setting.hiMoney.start).slice(0, 4);
-let loadMonth = String(setting.hiMoney.start).slice(4, 6);
+let loadYear = String(setting.hiMoney.startDate).slice(0, 4);
+let loadMonth = String(setting.hiMoney.startDate).slice(4, 6);
 const calendar = new Calendar(year,month);
 while (`${loadYear}${loadMonth}` != `${toYear}${toMonth}`) {
   calendar.createCalendar(loadYear,loadMonth);

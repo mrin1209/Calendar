@@ -73,11 +73,11 @@ class Money {
         // １桁の場合０を追加 1→01
         adjustDate = ( '00' + weeks[i][j].date ).slice( -2 );
         if (weeks[i][j].other === false) { //本月ではなかった場合金額非表示
-          if (`${year}${adjustMonth}${adjustDate}` == setting.hiMoney.start) { //開始日より後なら表示
+          if (`${year}${adjustMonth}${adjustDate}` == setting.hiMoney.startDate) { //開始日より後なら表示
             weeks[i][j].money = setting.hiMoney.startMoney;
             currentMoney = setting.hiMoney.startMoney;
           }
-          if(`${year}${adjustMonth}${adjustDate}` > setting.hiMoney.start) {
+          if(`${year}${adjustMonth}${adjustDate}` > setting.hiMoney.startDate) {
             weeks[i][j].money = currentMoney;
           }
           calculation(i,j);
