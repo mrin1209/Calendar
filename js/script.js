@@ -121,8 +121,8 @@ $(function(){
 
   // TODATボタンを押したとき
   $('.todaybtn').click(function(){
-    month = tomonth
-    year = toyear
+    month = tomonth;
+    year = toyear;
     create_calendar()
   })
 });

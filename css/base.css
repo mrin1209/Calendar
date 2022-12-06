@@ -1,5 +1,6 @@
 body {
   font-family: 'Caveat', cursive;
+  background-color: rgb(234, 241, 241);
 }
 
 table {
@@ -24,7 +25,6 @@ table {
 }
 
 tbody {
-  background-color: rgb(234, 241, 241);
   color: rgb(54, 54, 54);
 }
 
@@ -66,4 +66,9 @@ td:hover {
 
 .other {
   opacity: 0.6;
+}
+
+.money {
+  position: absolute;
+  opacity: 0.5;
 }
