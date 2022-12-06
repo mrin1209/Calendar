@@ -12,11 +12,9 @@ class Money {
       lastMonth = 11;
     }
     lastMonth = ( '00' + lastMonth ).slice( -2 );
-    try {
-      //今月の1日の残高
+    if (setting.hiMoney.record[`${lastYear}${lastMonth}`]) {
       currentMoney = setting.hiMoney.record[`${lastYear}${lastMonth}`];
-    } catch (error) {
-      // データがない場合は0円
+    } else {
       currentMoney = 0;
       setting.hiMoney.record = {...setting.hiMoney.record,...{[`${lastYear}${lastMonth}`]:currentMoney}}
     }
@@ -66,21 +64,22 @@ class Money {
             break;
         }
       });
+      if (`${year}${adjustMonth}${adjustDate}` == setting.hiMoney.startDate) { //開始日より後なら表示
+        currentMoney = setting.hiMoney.startMoney;
+      }
+      if (`${year}${adjustMonth}${adjustDate}` < setting.hiMoney.startDate) { //開始日より後なら表示
+        currentMoney = 0;
+        weeks[i][j].change = 0;
+      }
     }
-
+    
     for (let i = 0; i < 6; i++) {
       for (let j = 0; j < 7; j++) {
         // １桁の場合０を追加 1→01
         adjustDate = ( '00' + weeks[i][j].date ).slice( -2 );
         if (weeks[i][j].other === false) { //本月ではなかった場合金額非表示
-          if (`${year}${adjustMonth}${adjustDate}` == setting.hiMoney.startDate) { //開始日より後なら表示
-            weeks[i][j].money = setting.hiMoney.startMoney;
-            currentMoney = setting.hiMoney.startMoney;
-          }
-          if(`${year}${adjustMonth}${adjustDate}` > setting.hiMoney.startDate) {
-            weeks[i][j].money = currentMoney;
-          }
           calculation(i,j);
+          weeks[i][j].money = currentMoney;
         } else {
           weeks[i][j].money = '';
         }
