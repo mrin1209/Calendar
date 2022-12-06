@@ -1,20 +1,4 @@
 class Money {
-  constructor() {
-    const getjson = localStorage.getItem('HiMoney');
-    if (getjson === null) { //新規開始なら新たにオブジェクトを生成
-      setting.newSetting();
-    } else {
-      setting.hiMoney = JSON.parse(getjson); //ローカルストレージから読み込む
-    }
-    this.save(); //ローカルストレージに保存
-  }
-
-   //ローカルストレージに保存
-  save() {
-      let setjson = JSON.stringify(setting.hiMoney);
-      localStorage.setItem('HiMoney', setjson);
-  }
-
   // 計算
   give(weeks,year,month) {
     let currentMoney; //現在の所持金
@@ -73,7 +57,6 @@ class Money {
           default:
             return false
         }
-        console.log(weeks[i][j].change);
         switch (Math.sign(weeks[i][j].change)) {
           case -1:
             weeks[i][j].color = 'red';
@@ -105,7 +88,7 @@ class Money {
     }
     // 今月の残高を保存
     setting.hiMoney.record = {...setting.hiMoney.record,...{[`${year}${adjustMonth}`]:currentMoney}}
-    this.save();//ローカルストレージに保存
+    setting.save();//ローカルストレージに保存
   }
 }
 

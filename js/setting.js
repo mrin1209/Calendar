@@ -1,4 +1,21 @@
 class Setting {
+  constructor() {
+    const getjson = localStorage.getItem('HiMoney');
+    if (getjson === null) { //新規開始なら新たにオブジェクトを生成
+      this.newSetting();
+    } else {
+      //this.hiMoney = JSON.parse(getjson); //ローカルストレージから読み込む
+      this.newSetting();
+    }
+    this.save(); //ローカルストレージに保存
+  }
+
+   //ローカルストレージに保存
+  save() {
+      let setjson = JSON.stringify(this.hiMoney);
+      localStorage.setItem('HiMoney', setjson);
+  }
+
   newSetting() {
     /*
       frequency:{
