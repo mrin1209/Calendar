@@ -39,7 +39,7 @@ class Setting {
         {
           frequency:"week", //頻度
           num:[3],
-          sum:-500, //金額 支出ならマイナス値
+          sum:-100, //金額 支出ならマイナス値
         },
       ],
       record:{},

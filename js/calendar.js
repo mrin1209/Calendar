@@ -78,20 +78,21 @@ class Calendar {
         let moneyBox = document.createElement('p');
         moneyBox.className = 'money';
 
-        // 増減額
-        let changeMoney = document.createElement('p');
+        // 増加額
+        let addMoney = document.createElement('p');
         if (date.className != 'other') {
-          changeMoney.textContent = weeks[i][j].change ? `${weeks[i][j].change}円` : "";
+          addMoney.textContent = weeks[i][j].add ? `${weeks[i][j].add}円` : "";
         }
-        changeMoney.className = weeks[i][j].color;
-        moneyBox.appendChild(changeMoney);
+        addMoney.className = 'green';
+        moneyBox.appendChild(addMoney);
 
-        // 所持金
-        let dateMoney = document.createElement('p');
+        // 減少額
+        let subMoney = document.createElement('p');
         if (date.className != 'other') {
-          dateMoney.textContent = weeks[i][j].money ? `${weeks[i][j].money}円` : "0円";
+          subMoney.textContent = weeks[i][j].sub ? `${weeks[i][j].sub}円` : "";
         }
-        moneyBox.appendChild(dateMoney);
+        subMoney.className = 'red';
+        moneyBox.appendChild(subMoney);
 
         date.appendChild(moneyBox);
       }

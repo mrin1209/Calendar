@@ -21,47 +21,36 @@ class Money {
 
     // 定期収入/支出
     function calculation(i,j) {
-      weeks[i][j].change = 0;
+      weeks[i][j].add = 0;
+      weeks[i][j].sub = 0;
       setting.hiMoney.receipts.map((receipt)=>{
         switch (receipt.frequency) {
           case "date":
-            currentMoney += receipt.sum;
-            weeks[i][j].change += receipt.sum;
+            change(receipt,weeks[i][j]);
             break;
           case "week":
             receipt.num.map((value)=>{
               if (value == j) {
-                currentMoney += receipt.sum;
-                weeks[i][j].change += receipt.sum;
+                change(receipt,weeks[i][j]);
               }
             })
             break;
           case "month":
             receipt.num.map((value)=>{
               if (value == weeks[i][j].date) {
-                currentMoney += receipt.sum;
-                weeks[i][j].change += receipt.sum;
+                change(receipt,weeks[i][j]);
               }
             })
             break;
           case "year":
             receipt.num.map((value)=>{
               if (value[0] == month && value[1] == weeks[i][j].date) {
-                currentMoney += receipt.sum;
-                weeks[i][j].change += receipt.sum;
+                change(receipt,weeks[i][j]);
               }
             })
             break;
           default:
             return false
-        }
-        switch (Math.sign(weeks[i][j].change)) {
-          case -1:
-            weeks[i][j].color = 'red';
-            break
-          case 1:
-            weeks[i][j].color = 'green';
-            break;
         }
       });
       if (`${year}${adjustMonth}${adjustDate}` == setting.hiMoney.startDate) { //開始日より後なら表示
@@ -69,7 +58,20 @@ class Money {
       }
       if (`${year}${adjustMonth}${adjustDate}` < setting.hiMoney.startDate) { //開始日より後なら表示
         currentMoney = 0;
-        weeks[i][j].change = 0;
+        weeks[i][j].add = 0;
+        weeks[i][j].sub = 0;
+      }
+    }
+
+    function change(receipt,date) {
+      currentMoney += receipt.sum;
+      switch (Math.sign(receipt.sum)) {
+        case -1:
+          date.sub += receipt.sum;
+          break
+        case 1:
+          date.add += receipt.sum;
+          break;
       }
     }
     
