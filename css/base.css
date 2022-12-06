@@ -1,6 +1,7 @@
 body {
   font-family: 'Caveat', cursive;
   background-color: rgb(234, 241, 241);
+  touch-action: manipulation;
 }
 
 table {
