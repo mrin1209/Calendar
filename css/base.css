@@ -71,9 +71,8 @@ td:hover {
 }
 
 .money {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  line-height: 1;
+  text-align: center;
   font-size: 10px;
   opacity: 0.5;
 }

@@ -62,21 +62,25 @@ class Calendar {
         date.innerHTML = '';
         date.className = '';
 
-        // 日付
-        date.textContent = weeks[i][j].date;
-
-        // 金額
-        let dateMoney = document.createElement('p');
-        dateMoney.textContent = weeks[i][j].money;
-        dateMoney.className = 'money'
-        date.appendChild(dateMoney);
-
         if (weeks[i][j].other === true) { //本月ではなかった場合薄く表示
           date.className = 'other';
         }
         if (weeks[i][j].today === true) { //今日の日付は強調表示
           date.className = 'today';
         }
+
+        // 日付
+        let dateNum = document.createElement('p');
+        dateNum.textContent = weeks[i][j].date;
+        date.appendChild(dateNum);
+
+        // 金額
+        let dateMoney = document.createElement('p');
+        if (date.className != 'other') {
+          dateMoney.textContent = weeks[i][j].money ? `${weeks[i][j].money}円` : "0円";
+        }
+        dateMoney.className = 'money'
+        date.appendChild(dateMoney);
       }
     }
     // 年月表示
