@@ -6,6 +6,9 @@ class Money {
     let adjustMonth = ( '00' + month ).slice( -2 );
     let lastMonth = month; //先月
     let lastYear = year; //去年
+    this.receiptMoney = 0;
+    this.expenseMoney = 0;
+    this.currentMoney = 0;
     lastMonth--;
     if(lastMonth < 0){
       lastYear--;
@@ -68,9 +71,11 @@ class Money {
       switch (Math.sign(receipt.sum)) {
         case -1:
           date.sub += receipt.sum;
+          money.expenseMoney -= receipt.sum;
           break
         case 1:
           date.add += receipt.sum;
+          money.receiptMoney += receipt.sum;
           break;
       }
     }
@@ -90,5 +95,6 @@ class Money {
     // 今月の残高を保存
     setting.hiMoney.record = {...setting.hiMoney.record,...{[`${year}${adjustMonth}`]:currentMoney}}
     setting.save();//ローカルストレージに保存
+    this.currentMoney = this.receiptMoney - this.expenseMoney;
   }
 }

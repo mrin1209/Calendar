@@ -28,9 +28,18 @@ function changeScreen() {
   // 年月表示
   title.textContent = `${year}/${month + 1}月`;
   const mode = new URL(window.location.href).searchParams.get("mode");
+  if (mode === null) {
+    document.querySelectorAll('.start').forEach(function(element) {
+      element.classList.add('select');
+    });
+  } else {
+    document.querySelectorAll(`.${mode}`).forEach(function(element) {
+      element.classList.add('select');
+    });
+  }
+  weeks = calendar.createCalendar(year,month);
   switch (mode) {
     case 'calendar':
-      weeks = calendar.createCalendar(year,month);
       display.displayCalendar(weeks,year,month);
       break;
     case 'list':
@@ -43,7 +52,6 @@ function changeScreen() {
       display.displayStart(weeks,year,month);
       break;
   }
-
 }
 
 document.addEventListener('click',function(e) {

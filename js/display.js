@@ -1,6 +1,11 @@
 class Display {
   displayStart() {
-
+    const receipt = document.querySelector('.receipt');
+    const expense = document.querySelector('.expense');
+    const current = document.querySelector('.current');
+    receipt.textContent = money.receiptMoney;
+    expense.textContent = money.expenseMoney;
+    current.textContent = money.currentMoney;
   }
   
   displayCalendar(weeks,year,month) {

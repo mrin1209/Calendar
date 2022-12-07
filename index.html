@@ -6,7 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="css/destyle.css">
   <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/start.css">
   <link rel="stylesheet" href="css/calendar.css">
+  <link rel="stylesheet" href="css/list.css">
+  <link rel="stylesheet" href="css/setting.css">
   <title>カレンダー</title>
 </head>
 <body>
@@ -18,19 +21,52 @@
     </tr>
   </table>
 
-  <div class="main">
-    <p>今月入ったお金と残り使えるお金と使ったお金を表示させます。</p>
+  <section class="main start">
+    <div class="startScreen">
+      <p>収入：<span class="receipt"></span></p>
+      <p>支出：<span class="expense"></span></p>
+      <p>残り：<span class="current"></span></p>
+    </div>
+  </section> 
+
+  <section class="main calendar">
+    <table >
+      <thead class="week">
+        <tr>
+          <th>S</th>
+          <th>M</th>
+          <th>T</th>
+          <th>W</th>
+          <th>T</th>
+          <th>F</th>
+          <th>S</th>
+        </tr>
+      </thead>
+      <tbody class="dateList">
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table> 
+  </section>
+  
+  <section class="main list">
+    <p>使ったお金とその日付、貰ったお金とその日付をリスト表示させます。</p>
     <br>
-    <p>今月のお小遣い:5000円</p>
-    <p>使ったお金:2000円</p>
-    <p>残り:3000円</p>
-  </div>
+    <p>12/1 +5000円 お小遣い</p>
+    <p>12/8 -400円 マフラー</p>
+  </section>
+
+  <section class="main setting">設定画面です。</section>
 
   <div class="menu btnList">
-    <a href="index.html?mode=start" class="select">💰</a>
-    <a href="calendar.html?mode=calendar">📅</a>
-    <a href="list.html?mode=list">📄</a>
-    <a href="setting.html?mode=setting">⚙</a>
+    <a href="index.html?mode=start" class="start">💰</a>
+    <a href="index.html?mode=calendar" class="calendar">📅</a>
+    <a href="index.html?mode=list" class="list">📄</a>
+    <a href="index.html?mode=setting" class="setting">⚙</a>
   </div>
   <script src="js/setting.js"></script>
   <script src="js/money.js"></script>

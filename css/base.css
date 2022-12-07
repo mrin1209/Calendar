@@ -4,6 +4,7 @@ body {
 }
 
 table {
+  height: 100%;
   font-size: 14px;
   user-select: none;
   margin: auto;
@@ -40,7 +41,7 @@ td,th {
 .prev:hover,
 .next:hover,
 .btn:hover,
-.select {
+a.select {
   background-color: rgb(234, 241, 241);
   color: rgb(54, 54, 54);
   text-shadow: 0 5px 3px #7e7e7e;
@@ -48,6 +49,11 @@ td,th {
 
 .main {
   height: calc(100vh - 100px);
+  display: none;
+}
+
+.main.select {
+  display: block;
 }
 
 .title {
