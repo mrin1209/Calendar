@@ -39,7 +39,8 @@ td,th {
 
 .prev:hover,
 .next:hover,
-.btn:hover {
+.btn:hover,
+.select {
   background-color: rgb(234, 241, 241);
   color: rgb(54, 54, 54);
   text-shadow: 0 5px 3px #7e7e7e;
