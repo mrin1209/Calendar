@@ -1,3 +1,7 @@
+td {
+  font-size: 25px;
+}
+
 td:first-child {
   color: rgb(250, 95, 95);
 }
@@ -15,6 +19,7 @@ td:hover p {
 .week {
   text-align: center;
   line-height: 50px;
+  font-size: 25px;
 }
 
 .other {
@@ -23,7 +28,7 @@ td:hover p {
 
 .money {
   text-align: center;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .green {
