@@ -92,6 +92,3 @@ class Money {
     setting.save();//ローカルストレージに保存
   }
 }
-
-const setting = new Setting();
-const money = new Money();

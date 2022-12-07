@@ -51,55 +51,6 @@ class Calendar {
     money.give(weeks,year,month);//金額計算へ
     return weeks
   }
-
-  // 描画
-  displayCalendar(weeks,year,month) {
-    const title = document.querySelector('.title');
-    const dateList = document.querySelector('.dateList');
-    for (let i = 0; i < 6; i++) {
-      for (let j = 0; j < 7; j++) {
-        let date = dateList.children[i].children[j];
-        date.innerHTML = '';
-        date.className = '';
-
-        if (weeks[i][j].other === true) { //本月ではなかった場合薄く表示
-          date.className = 'other';
-        }
-        if (weeks[i][j].today === true) { //今日の日付は強調表示
-          date.className = 'today';
-        }
-
-        // 日付
-        let dateNum = document.createElement('p');
-        dateNum.textContent = weeks[i][j].date;
-        date.appendChild(dateNum);
-
-        // 金額
-        let moneyBox = document.createElement('p');
-        moneyBox.className = 'money';
-
-        // 増加額
-        let addMoney = document.createElement('p');
-        if (date.className != 'other') {
-          addMoney.textContent = weeks[i][j].add ? `${weeks[i][j].add}円` : "";
-        }
-        addMoney.className = 'green';
-        moneyBox.appendChild(addMoney);
-
-        // 減少額
-        let subMoney = document.createElement('p');
-        if (date.className != 'other') {
-          subMoney.textContent = weeks[i][j].sub ? `${weeks[i][j].sub}円` : "";
-        }
-        subMoney.className = 'red';
-        moneyBox.appendChild(subMoney);
-
-        date.appendChild(moneyBox);
-      }
-    }
-    // 年月表示
-    title.textContent = `${year}/${month + 1}月`;
-  }
 }
 // 日付ごとの残高を確認
 // 大きい支出があった場合いつから貯め始めたらいいかを算出

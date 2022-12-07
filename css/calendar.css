@@ -1,0 +1,35 @@
+td:first-child {
+  color: rgb(250, 95, 95);
+}
+
+td:last-child {
+  color: rgb(75, 75, 253);
+}
+
+td:hover,
+td:hover p {
+  background-color: rgb(28, 148, 112);
+  color: rgb(234, 243, 245);
+}
+
+.week {
+  text-align: center;
+  line-height: 50px;
+}
+
+.other {
+  opacity: 0.6;
+}
+
+.money {
+  text-align: center;
+  font-size: 12px;
+}
+
+.green {
+  color: rgb(0, 182, 24);
+}
+
+.red {
+  color: red;
+}

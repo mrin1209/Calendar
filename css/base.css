@@ -1,7 +1,6 @@
 body {
   font-family: 'Caveat', cursive;
   background-color: rgb(234, 241, 241);
-  touch-action: manipulation;
 }
 
 table {
@@ -9,12 +8,45 @@ table {
   user-select: none;
   margin: auto;
   width: 100%;
-  height:100vh;
-  transition: 0.5s;
 }
 
-.screen_size {
-  width: 100vh;
+td,th {
+  height: 50px;
+  text-align: center;
+  width: calc(100% / 7);
+  transition: 0.2s;
+}
+
+.menu {
+  text-align: center;
+  line-height: 50px;
+  background-color: rgb(28, 148, 112);
+  color: rgb(234, 243, 245);
+  text-shadow: 0 5px 3px #3d3d3d;
+}
+
+.btnList {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btnList a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: 0.2s;
+}
+
+.prev:hover,
+.next:hover,
+.btn:hover {
+  background-color: rgb(234, 241, 241);
+  color: rgb(54, 54, 54);
+  text-shadow: 0 5px 3px #7e7e7e;
+}
+
+.main {
+  height: calc(100vh - 100px);
 }
 
 .title {
@@ -25,62 +57,4 @@ table {
   font-size: 20px;
 }
 
-tbody {
-  color: rgb(54, 54, 54);
-}
 
-thead, tfoot {
-  background-color: rgb(28, 148, 112);
-  color: rgb(234, 243, 245);
-  text-shadow: 0 5px 3px #3d3d3d;
-}
-
-td,th,span {
-  position: relative;
-  text-align: center;
-  line-height: 50px;
-  width: calc(100% / 7);
-  transition: 0.2s;
-}
-
-td:first-child {
-  color: rgb(250, 95, 95);
-}
-
-td:last-child {
-  color: rgb(75, 75, 253);
-}
-
-td:hover {
-  background-color: rgb(28, 148, 112);
-  color: rgb(234, 243, 245);
-}
-
-.prev:hover, .next:hover, .todaybtn:hover, .btn:hover {
-  background-color: rgb(234, 241, 241);
-  color: rgb(54, 54, 54);
-  text-shadow: 0 5px 3px #7e7e7e;
-}
-
-.today {
-  border-bottom: solid 3px rgb(28, 148, 112);
-}
-
-.other {
-  opacity: 0.6;
-}
-
-.money {
-  line-height: 1;
-  text-align: center;
-  font-size: 12px;
-  color: black;
-}
-
-.green {
-  color: rgb(0, 182, 24);
-}
-
-.red {
-  color: red;
-}

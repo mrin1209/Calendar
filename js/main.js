@@ -1,3 +1,5 @@
+const setting = new Setting();
+
 const today = new Date();
 const toYear =today.getFullYear();
 const toMonth  = today.getMonth();
@@ -7,7 +9,12 @@ let month = toMonth;
 let weeks;
 let loadYear = String(setting.hiMoney.startDate).slice(0, 4);
 let loadMonth = String(setting.hiMoney.startDate).slice(4, 6);
+const title = document.querySelector('.title');
+
+const money = new Money();
+const display = new Display();
 const calendar = new Calendar(year,month);
+
 while (`${loadYear}${loadMonth}` != `${toYear}${toMonth}`) {
   calendar.createCalendar(loadYear,loadMonth);
   loadMonth++
@@ -15,6 +22,28 @@ while (`${loadYear}${loadMonth}` != `${toYear}${toMonth}`) {
     loadYear++
     loadMonth = 0
   }
+}
+
+function changeScreen() {
+  // 年月表示
+  title.textContent = `${year}/${month + 1}月`;
+  const mode = new URL(window.location.href).searchParams.get("mode");
+  switch (mode) {
+    case 'calendar':
+      weeks = calendar.createCalendar(year,month);
+      display.displayCalendar(weeks,year,month);
+      break;
+    case 'list':
+      display.displayList(weeks,year,month);
+      break;
+    case 'setting':
+      display.displaySetting(weeks,year,month);
+      break;
+    default:
+      display.displayStart(weeks,year,month);
+      break;
+  }
+
 }
 
 document.addEventListener('click',function(e) {
@@ -25,8 +54,7 @@ document.addEventListener('click',function(e) {
         year--
         month = 11
       }
-      weeks = calendar.createCalendar(year,month);
-      calendar.displayCalendar(weeks,year,month);
+      changeScreen();
       break
     case 'next': //次へ
       month++
@@ -34,11 +62,9 @@ document.addEventListener('click',function(e) {
         year++
         month = 0
       }
-      weeks = calendar.createCalendar(year,month);
-      calendar.displayCalendar(weeks,year,month);
+      changeScreen();
       break
   }
 });
 
-weeks = calendar.createCalendar(year,month);
-calendar.displayCalendar(weeks,year,month);
+changeScreen();
