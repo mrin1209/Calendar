@@ -63,4 +63,29 @@ a.select {
   font-size: 20px;
 }
 
+.moneyInput {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 300px;
+  height: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 0 16px gray;
+}
 
+.dateInfo {
+  display: flex;
+}
+
+.dateMoney {
+  margin-left: 25%;
+  font-size: 2em
+}
+
+.active {
+  display: block;
+}

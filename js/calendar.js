@@ -1,4 +1,10 @@
 class Calendar {
+  constructor() {
+    dateList.addEventListener('click',function(e) {
+      moneyInput.classList.toggle('active');
+    })
+  }
+
   createCalendar(year,month) {
     let dates = [];
     

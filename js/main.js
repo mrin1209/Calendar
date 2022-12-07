@@ -9,7 +9,9 @@ let month = toMonth;
 let weeks;
 let loadYear = String(setting.hiMoney.startDate).slice(0, 4);
 let loadMonth = String(setting.hiMoney.startDate).slice(4, 6);
+const moneyInput = document.querySelector('.moneyInput');
 const title = document.querySelector('.title');
+const dateList = document.querySelector('.dateList');
 
 const money = new Money();
 const display = new Display();

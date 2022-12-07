@@ -9,7 +9,6 @@ class Display {
   }
   
   displayCalendar(weeks,year,month) {
-    const dateList = document.querySelector('.dateList');
     for (let i = 0; i < 6; i++) {
       for (let j = 0; j < 7; j++) {
         let date = dateList.children[i].children[j];
