@@ -7,7 +7,7 @@ const toDate =  today.getDate();
 let year = toYear;
 let month = toMonth;
 let weeks;
-let screenMode = 'input';
+let screenMode = 'start';
 let loadYear = String(setting.hiMoney.startDate).slice(0, 4);
 let loadMonth = String(setting.hiMoney.startDate).slice(4, 6);
 const moneyInput = document.querySelector('.moneyInput');
