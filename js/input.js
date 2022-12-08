@@ -1,7 +1,7 @@
 class Input {
   constructor() {
     const inputTab = document.querySelectorAll('.inputTab');
-
+    const inputList = document.querySelectorAll('.inputList');
     document.addEventListener('click',function(e) {
       if (e.target.className === 'addMoney') {
         if (screenMode === 'calendar') {
@@ -16,6 +16,12 @@ class Input {
       element.addEventListener('click',function(e) {
         document.querySelector('.inputSelect').classList.remove('inputSelect');
         e.target.classList.add('inputSelect');
+      })
+    })
+
+    inputList.forEach(function(element) {
+      element.addEventListener('click',function(e) {
+        console.log('a');
       })
     })
   }
