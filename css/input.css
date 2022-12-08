@@ -1,0 +1,29 @@
+.inputKey {
+  position: absolute;
+  bottom: 0;
+}
+
+.inputKey td {
+  height: 50px;
+}
+
+.inputList {
+  font-size: 20px;
+  padding: 10px;
+  line-height: 2em;
+}
+
+.inputTab {
+  display: flex;
+  justify-content: space-around;
+}
+
+.inputTab li {
+  width: 100%;
+}
+
+.headerMenu .inputSelect {
+  background-color: rgb(234, 241, 241);
+  color: rgb(54, 54, 54);
+  text-shadow: 0 5px 3px #7e7e7e;
+}

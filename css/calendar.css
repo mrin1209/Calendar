@@ -1,31 +1,5 @@
-td {
-  font-size: 20px;
-}
-
-td:first-child {
-  color: rgb(250, 95, 95);
-}
-
-td:last-child {
-  color: rgb(75, 75, 253);
-}
-
-td:hover,
-td:hover p {
-  background-color: rgb(28, 148, 112);
-  color: rgb(234, 243, 245);
-}
-
-td p {
-  pointer-events: none;
-}
-
-.week {
-  background-color: rgb(28, 148, 112);
-  color: rgb(234, 243, 245);
-  text-align: center;
-  line-height: 50px;
-  font-size: 25px;
+.calendar table {
+  height: 100%;
 }
 
 .other {
@@ -69,11 +43,12 @@ td p {
 
 .moneyList {
   line-height: 1.5em;
+  color: gray;
 }
 
 .dateMoney {
   margin-left: 25%;
-  font-size: 2em
+  font-size: 2em;
 }
 
 .active {

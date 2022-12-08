@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="css/calendar.css">
   <link rel="stylesheet" href="css/list.css">
   <link rel="stylesheet" href="css/setting.css">
+  <link rel="stylesheet" href="css/input.css">
   <title>カレンダー</title>
 </head>
 <body>
@@ -32,15 +33,15 @@
 
   <section class="main calendar">
     <table >
-      <thead class="week">
+      <thead class="headerMenu">
         <tr>
-          <th>S</th>
-          <th>M</th>
-          <th>T</th>
-          <th>W</th>
-          <th>T</th>
-          <th>F</th>
-          <th>S</th>
+          <th>日</th>
+          <th>月</th>
+          <th>火</th>
+          <th>水</th>
+          <th>木</th>
+          <th>金</th>
+          <th>土</th>
         </tr>
       </thead>
       <tbody class="dateList">
@@ -68,21 +69,64 @@
     <br>
     <p style="color: rgb(0, 214, 0);">12/1 +5000円 お小遣い</p>
     <p style="color: red;">12/8 -400円 マフラー</p>
+    <br>
+    <p>定期的な収入と支出も見れます。</p>
+    <p>上のタブボタンで切り替え</p>
     <div class="addMoney">+</div>
   </section>
 
   <section class="main setting">設定画面です。</section>
 
+  <section class="main input">
+    <ul class="inputTab headerMenu">
+      <li class="inputSelect">収入</li>
+      <li>支出</li>
+    </ul>
+    <div class="inputList">
+      <p class="border">金額</p>
+      <p class="border">日付</p>
+      <p class="border">メモ</p>
+    </div>
+    <table class="inputKey">
+      <tr>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td>÷</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>×</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>.</td>
+        <td>=</td>
+        <td>+</td>
+      </tr>
+    </table>
+  </section>
+
   <div class="menu btnList">
-    <button class="menuBtn start">💰</button>
-    <button class="menuBtn calendar">📅</button>
-    <button class="menuBtn list">📄</button>
-    <button class="menuBtn setting">🔧</button>
+    <button class="menuBtn start">💰<br>所持金</button>
+    <button class="menuBtn calendar">📅<br>カレンダー</button>
+    <button class="menuBtn list">📄<br>リスト</button>
+    <button class="menuBtn setting">🔧<br>設定</button>
   </div>
   <script src="js/setting.js"></script>
   <script src="js/money.js"></script>
   <script src="js/display.js"></script>
   <script src="js/calendar.js"></script>
+  <script src="js/list.js"></script>
+  <script src="js/input.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

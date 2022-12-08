@@ -7,7 +7,7 @@ const toDate =  today.getDate();
 let year = toYear;
 let month = toMonth;
 let weeks;
-let screenMode = 'start';
+let screenMode = 'input';
 let loadYear = String(setting.hiMoney.startDate).slice(0, 4);
 let loadMonth = String(setting.hiMoney.startDate).slice(4, 6);
 const moneyInput = document.querySelector('.moneyInput');
@@ -17,6 +17,7 @@ const dateList = document.querySelectorAll('.dateList tr');
 const money = new Money();
 const display = new Display();
 const calendar = new Calendar(year,month);
+const input = new Input();
 
 while (`${loadYear}${loadMonth}` != `${toYear}${toMonth}`) {
   calendar.createCalendar(loadYear,loadMonth);

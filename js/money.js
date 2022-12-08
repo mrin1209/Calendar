@@ -76,7 +76,6 @@ class Money {
         case 1:
           date.add += receipt.sum;
           money.receiptMoney += receipt.sum;
-
           break;
       }
       date.history.push({
