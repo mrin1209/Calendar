@@ -13,6 +13,10 @@
   line-height: 2em;
 }
 
+.inputList input {
+  width: 100%;
+}
+
 .inputTab {
   display: flex;
   justify-content: space-around;

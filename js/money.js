@@ -56,14 +56,6 @@ class Money {
             return false
         }
       });
-      if (`${year}${adjustMonth}${adjustDate}` == setting.hiMoney.startDate) { //開始日より後なら表示
-        currentMoney = setting.hiMoney.startMoney;
-      }
-      if (`${year}${adjustMonth}${adjustDate}` < setting.hiMoney.startDate) { //開始日より後なら表示
-        currentMoney = 0;
-        weeks[i][j].add = 0;
-        weeks[i][j].sub = 0;
-      }
     }
 
     function change(receipt,date) {
@@ -90,7 +82,13 @@ class Money {
         adjustDate = ( '00' + weeks[i][j].date ).slice( -2 );
         if (weeks[i][j].other === false) { //本月ではなかった場合金額非表示
           weeks[i][j].history = [];
-          calculation(i,j);
+          if (`${year}${adjustMonth}${adjustDate}` == setting.hiMoney.startDate) { //開始日より後なら表示
+            currentMoney = setting.hiMoney.startMoney;
+            calculation(i,j);
+          }
+          if (`${year}${adjustMonth}${adjustDate}` > setting.hiMoney.startDate) { //開始日より後なら表示
+            calculation(i,j);
+          }
           weeks[i][j].money = currentMoney;
         } else {
           weeks[i][j].money = '';
