@@ -33,11 +33,13 @@ class Setting {
       receipts:[ //収入　支出
         {
           frequency:"month", //頻度
+          memo:'お小遣い', //メモ
           num:[1],
           sum:5000, //金額 支出ならマイナス値
         },
         {
           frequency:"week", //頻度
+          memo:'毎週水曜に４００円取られる人',
           num:[3],
           sum:-400, //金額 支出ならマイナス値
         },

@@ -8,10 +8,10 @@ class Display {
     current.textContent = money.currentMoney;
   }
   
-  displayCalendar(weeks,year,month) {
+  displayCalendar(weeks) {
     for (let i = 0; i < 6; i++) {
       for (let j = 0; j < 7; j++) {
-        let date = dateList.children[i].children[j];
+        let date = dateList[i].children[j];
         date.innerHTML = '';
         date.className = '';
 

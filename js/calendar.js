@@ -1,10 +1,43 @@
 class Calendar {
   constructor() {
-    dateList.addEventListener('click',function(e) {
-      moneyInput.classList.toggle('active');
+    const menu = document.querySelectorAll('.menu');
+    const moneyList = document.querySelector('.moneyList');
+    const dateMoney = document.querySelector('.dateMoney');
+    dateList.forEach(function(element) {
+      element.addEventListener('click',function(e) {
+        if (!moneyInput.classList.contains('active')) {
+          if (e.target.tagName === 'TD' && e.target.className != 'other') {
+            let moneyLine = [].slice.call(dateList).indexOf(element);
+            let moneyColumn = [].slice.call(element.children).indexOf(e.target);
+            dateMoney.textContent = `${weeks[moneyLine][moneyColumn].money}円`;
+            moneyList.innerHTML = '';
+            weeks[moneyLine][moneyColumn].history.map((receipt)=>{
+              let moneyListMemo = document.createElement('li');
+              moneyListMemo.textContent = `${receipt.memo}:${receipt.sum}円`
+              switch (Math.sign(receipt.sum)) {
+                case -1:
+                  moneyListMemo.className = 'red';
+                  break
+                case 1:
+                  moneyListMemo.className = 'green';
+                  break;
+              }
+              moneyList.appendChild(moneyListMemo);
+            })
+            moneyInput.classList.add('active');
+          }
+        } else {
+          moneyInput.classList.remove('active');
+        }
+      });
+    });
+
+    menu.forEach(function(element) {
+      element.addEventListener('click',function(){
+        moneyInput.classList.remove('active');
+      })
     })
   }
-
   createCalendar(year,month) {
     let dates = [];
     

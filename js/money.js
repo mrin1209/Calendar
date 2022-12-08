@@ -76,8 +76,13 @@ class Money {
         case 1:
           date.add += receipt.sum;
           money.receiptMoney += receipt.sum;
+
           break;
       }
+      date.history.push({
+        memo:receipt.memo,
+        sum:receipt.sum,
+      })
     }
     
     for (let i = 0; i < 6; i++) {
@@ -85,6 +90,7 @@ class Money {
         // １桁の場合０を追加 1→01
         adjustDate = ( '00' + weeks[i][j].date ).slice( -2 );
         if (weeks[i][j].other === false) { //本月ではなかった場合金額非表示
+          weeks[i][j].history = [];
           calculation(i,j);
           weeks[i][j].money = currentMoney;
         } else {

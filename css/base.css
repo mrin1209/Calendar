@@ -30,7 +30,7 @@ td,th {
   justify-content: space-around;
 }
 
-.btnList a {
+.menuBtn {
   display: block;
   width: 100%;
   height: 100%;
@@ -40,13 +40,14 @@ td,th {
 .prev:hover,
 .next:hover,
 .btn:hover,
-a.select {
+.menuBtn.select {
   background-color: rgb(234, 241, 241);
   color: rgb(54, 54, 54);
   text-shadow: 0 5px 3px #7e7e7e;
 }
 
 .main {
+  position: relative;
   height: calc(100vh - 100px);
   display: none;
 }
@@ -63,29 +64,16 @@ a.select {
   font-size: 20px;
 }
 
-.moneyInput {
-  display: none;
+.addMoney {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 300px;
-  height: 300px;
-  padding: 10px;
-  border-radius: 10px;
-  background-color: white;
-  box-shadow: 0 0 16px gray;
-}
-
-.dateInfo {
-  display: flex;
-}
-
-.dateMoney {
-  margin-left: 25%;
-  font-size: 2em
-}
-
-.active {
-  display: block;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  text-align: center;
+  background-color: rgb(28, 148, 112);
+  color: rgb(234, 243, 245);
 }

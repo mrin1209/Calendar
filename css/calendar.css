@@ -16,7 +16,13 @@ td:hover p {
   color: rgb(234, 243, 245);
 }
 
+td p {
+  pointer-events: none;
+}
+
 .week {
+  background-color: rgb(28, 148, 112);
+  color: rgb(234, 243, 245);
   text-align: center;
   line-height: 50px;
   font-size: 25px;
@@ -37,4 +43,39 @@ td:hover p {
 
 .red {
   color: red;
+}
+
+.moneyInput {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 300px;
+  height: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 0 16px gray;
+}
+
+.moneyInput ul {
+  margin: 10px 0;
+}
+
+.dateInfo {
+  display: flex;
+}
+
+.moneyList {
+  line-height: 1.5em;
+}
+
+.dateMoney {
+  margin-left: 25%;
+  font-size: 2em
+}
+
+.active {
+  display: block;
 }

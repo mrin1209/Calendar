@@ -7,11 +7,12 @@ const toDate =  today.getDate();
 let year = toYear;
 let month = toMonth;
 let weeks;
+let screenMode = 'start';
 let loadYear = String(setting.hiMoney.startDate).slice(0, 4);
 let loadMonth = String(setting.hiMoney.startDate).slice(4, 6);
 const moneyInput = document.querySelector('.moneyInput');
 const title = document.querySelector('.title');
-const dateList = document.querySelector('.dateList');
+const dateList = document.querySelectorAll('.dateList tr');
 
 const money = new Money();
 const display = new Display();
@@ -26,23 +27,19 @@ while (`${loadYear}${loadMonth}` != `${toYear}${toMonth}`) {
   }
 }
 
-function changeScreen() {
+function changeScreen(target) {
+  document.querySelectorAll(`.select`).forEach(function(element) {
+    element.classList.remove('select');
+  });
   // 年月表示
   title.textContent = `${year}/${month + 1}月`;
-  const mode = new URL(window.location.href).searchParams.get("mode");
-  if (mode === null) {
-    document.querySelectorAll('.start').forEach(function(element) {
-      element.classList.add('select');
-    });
-  } else {
-    document.querySelectorAll(`.${mode}`).forEach(function(element) {
-      element.classList.add('select');
-    });
-  }
+  document.querySelectorAll(`.${target}`).forEach(function(element) {
+    element.classList.add('select');
+  });
   weeks = calendar.createCalendar(year,month);
-  switch (mode) {
+  switch (target) {
     case 'calendar':
-      display.displayCalendar(weeks,year,month);
+      display.displayCalendar(weeks);
       break;
     case 'list':
       display.displayList(weeks,year,month);
@@ -57,14 +54,14 @@ function changeScreen() {
 }
 
 document.addEventListener('click',function(e) {
-  switch (e.target.className) {
+  switch (e.target.className.split(' ')[0]) {
     case 'prev': //前へ
       month--
       if(month < 0){
         year--
         month = 11
       }
-      changeScreen();
+      changeScreen(screenMode);
       break
     case 'next': //次へ
       month++
@@ -72,9 +69,13 @@ document.addEventListener('click',function(e) {
         year++
         month = 0
       }
-      changeScreen();
+      changeScreen(screenMode);
+      break
+    case 'menuBtn':
+      screenMode = e.target.className.split(' ')[1];
+      changeScreen(screenMode);
       break
   }
 });
 
-changeScreen();
+changeScreen(screenMode);

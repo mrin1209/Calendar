@@ -27,6 +27,7 @@
       <p>支出：<span class="expense"></span>円</p>
       <p>残り：<span class="current"></span>円</p>
     </div>
+    <div class="addMoney">+</div>
   </section> 
 
   <section class="main calendar">
@@ -51,6 +52,15 @@
         <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
       </tbody>
     </table> 
+
+    <div class="moneyInput">
+      <ul class="dateInfo">
+        <li>2022<br>12/9</li>
+        <li class="dateMoney"></li>
+      </ul>
+      <ul class="moneyList"></ul>
+      <div class="addMoney">+</div>
+    </div>
   </section>
   
   <section class="main list">
@@ -58,25 +68,16 @@
     <br>
     <p style="color: rgb(0, 214, 0);">12/1 +5000円 お小遣い</p>
     <p style="color: red;">12/8 -400円 マフラー</p>
+    <div class="addMoney">+</div>
   </section>
 
   <section class="main setting">設定画面です。</section>
 
-  <div class="moneyInput">
-    <ul class="dateInfo">
-      <li>2022<br>12/9</li>
-      <li class="dateMoney">4500円</li>
-    </ul>
-    <br>
-    <p style="color: rgb(0, 214, 0);">お小遣い:+5000円</p>
-    <p style="color: red;">マフラー:-500円</p>
-  </div>
-
   <div class="menu btnList">
-    <a href="index.html?mode=start" class="start">💰</a>
-    <a href="index.html?mode=calendar" class="calendar">📅</a>
-    <a href="index.html?mode=list" class="list">📄</a>
-    <a href="index.html?mode=setting" class="setting">⚙</a>
+    <button class="menuBtn start">💰</button>
+    <button class="menuBtn calendar">📅</button>
+    <button class="menuBtn list">📄</button>
+    <button class="menuBtn setting">🔧</button>
   </div>
   <script src="js/setting.js"></script>
   <script src="js/money.js"></script>
