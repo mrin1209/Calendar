@@ -30,26 +30,26 @@ class Money {
         if (`${year}${adjustMonth}${adjustDate}` >= receipt.startDate) { //開始日より後なら表示
           switch (receipt.frequency) {
             case "date":
-              change(receipt,weeks[i][j]);
+              change(receipt,weeks[i][j],weeks[i][j].fixed);
               break;
             case "week":
               receipt.num.map((value)=>{
                 if (value == j) {
-                  change(receipt,weeks[i][j]);
+                  change(receipt,weeks[i][j],weeks[i][j].fixed);
                 }
               })
               break;
             case "month":
               receipt.num.map((value)=>{
                 if (value == weeks[i][j].date) {
-                  change(receipt,weeks[i][j]);
+                  change(receipt,weeks[i][j],weeks[i][j].fixed);
                 }
               })
               break;
             case "year":
               receipt.num.map((value)=>{
                 if (value[0] == month && value[1] == weeks[i][j].date) {
-                  change(receipt,weeks[i][j]);
+                  change(receipt,weeks[i][j],weeks[i][j].fixed);
                 }
               })
               break;
@@ -60,7 +60,7 @@ class Money {
       });
     }
 
-    function change(receipt,date) {
+    function change(receipt,date,history) {
       currentMoney += receipt.sum;
       switch (Math.sign(receipt.sum)) {
         case -1:
@@ -72,7 +72,7 @@ class Money {
           money.receiptMoney += receipt.sum;
           break;
       }
-      date.history.push({
+      history.push({
         memo:receipt.memo,
         sum:receipt.sum,
       })
@@ -81,7 +81,7 @@ class Money {
     function moneyHistory(year,month,date,weeksDate) {
       if (setting.hiMoney.history[`${year}-${month}-${date}`]) {
         setting.hiMoney.history[`${year}-${month}-${date}`].map((receipt)=>{
-          change(receipt,weeksDate);
+          change(receipt,weeksDate,weeksDate.history);
         });
       }
     }
@@ -92,9 +92,10 @@ class Money {
         adjustDate = ( '00' + weeks[i][j].date ).slice( -2 );
         if (weeks[i][j].other === false) { //本月ではなかった場合金額非表示
           weeks[i][j].history = [];
+          weeks[i][j].fixed = [];
           if (`${year}${adjustMonth}${adjustDate}` == setting.hiMoney.startDate) { //開始日より後なら表示
             currentMoney = setting.hiMoney.startMoney;
-            weeks[i][j].currentMoney = currentMoney
+            weeks[i][j].currentMoney = currentMoney;
           }
           calculation(i,j,year,adjustMonth,adjustDate);
           moneyHistory(year,adjustMonth,adjustDate,weeks[i][j]);

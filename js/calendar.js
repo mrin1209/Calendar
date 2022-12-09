@@ -1,23 +1,24 @@
 class Calendar {
   constructor() {
     const menu = document.querySelectorAll('.menu');
-    const moneyList = document.querySelector('.moneyList');
     const dateMoney = document.querySelector('.dateMoney');
+    // 日付をタップしたらその日の詳細を表示
     dateList.forEach(function(element) {
       element.addEventListener('click',function(e) {
-        if (!moneyInput.classList.contains('active')) {
+        if (!moneyInfoBox.classList.contains('active')) {
           if (e.target.tagName === 'TD' && e.target.className != 'other') {
-            let moneyLine = [].slice.call(dateList).indexOf(element);
-            let moneyColumn = [].slice.call(element.children).indexOf(e.target);
-            dateMoney.textContent = `${weeks[moneyLine][moneyColumn].money}円`;
-            calendar.clickDate = weeks[moneyLine][moneyColumn].date;
+            calendar.moneyLine = [].slice.call(dateList).indexOf(element);
+            calendar.moneyColumn = [].slice.call(element.children).indexOf(e.target);
+            dateMoney.textContent = `${weeks[calendar.moneyLine][calendar.moneyColumn].money}円`;
+            calendar.clickDate = weeks[calendar.moneyLine][calendar.moneyColumn].date;
+            // 使用履歴
             moneyList.innerHTML = '';
-            if (weeks[moneyLine][moneyColumn].history.length === 0) {
+            if (weeks[calendar.moneyLine][calendar.moneyColumn].history.length === 0) {
               let moneyListMemo = document.createElement('li');
               moneyListMemo.textContent = '使ったお金はありません。';
               moneyList.appendChild(moneyListMemo);
             } else {
-              weeks[moneyLine][moneyColumn].history.map((receipt)=>{
+              weeks[calendar.moneyLine][calendar.moneyColumn].history.map((receipt)=>{
                 let moneyListMemo = document.createElement('li');
                 moneyListMemo.textContent = `${receipt.memo}:${receipt.sum}円`;
                 switch (Math.sign(receipt.sum)) {
@@ -31,17 +32,37 @@ class Calendar {
                 moneyList.appendChild(moneyListMemo);
               })
             }
-            moneyInput.classList.add('active');
+            // 固定費
+            fixedList.innerHTML = '';
+            if (weeks[calendar.moneyLine][calendar.moneyColumn].fixed.length === 0) {
+              let fixedListMemo = document.createElement('li');
+              fixedListMemo.textContent = '固定収入、または固定支出がありません。';
+              fixedList.appendChild(fixedListMemo);
+            } else {
+              weeks[calendar.moneyLine][calendar.moneyColumn].fixed.map((receipt)=>{
+                let fixedListMemo = document.createElement('li');
+                fixedListMemo.textContent = `${receipt.memo}:${receipt.sum}円`;
+                switch (Math.sign(receipt.sum)) {
+                  case -1:
+                    fixedListMemo.className = 'red';
+                    break
+                  case 1:
+                    fixedListMemo.className = 'green';
+                    break;
+                }
+                fixedList.appendChild(fixedListMemo);
+              })
+            }
+            moneyInfoBox.classList.add('active');
           }
         } else {
-          moneyInput.classList.remove('active');
+          moneyInfoBox.classList.remove('active');
         }
       });
     });
-
     menu.forEach(function(element) {
       element.addEventListener('click',function(){
-        moneyInput.classList.remove('active');
+        moneyInfoBox.classList.remove('active');
       })
     })
   }
@@ -114,4 +135,6 @@ TODAYボタン
 定期収入入力ボタン
 編集　削除
 その日の所持金入力ボタン
+日付詳細表示のときに矢印ボタンで次の日付
+固定費のスタート日
 */

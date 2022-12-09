@@ -1,24 +1,15 @@
-.inputKey {
-  height: calc(100% - 300px);
-}
-
-.inputKey td {
-  height: 50px;
-}
-
 .inputList {
   position: relative;
   font-size: 20px;
-  height: 200px;
   padding: 10px;
+  margin-top: 25px;
   line-height: 2em;
 }
 
-.inputList input {
-  width: 100%;
+.inputList input,
+.inputList select {
   padding: 0 1em;
-  border-bottom: solid 1px gray;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 .inputList span{
@@ -26,9 +17,16 @@
   right: calc(10px + 1em);
 }
 
-.inputTab {
+.inputTab,
+.inputBtnList {
   display: flex;
   justify-content: space-around;
+}
+
+.inputBtnList {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 
 .inputTab li {

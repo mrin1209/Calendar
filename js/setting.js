@@ -4,8 +4,8 @@ class Setting {
     if (getjson === null) { //新規開始なら新たにオブジェクトを生成
       this.newSetting();
     } else {
-      //this.hiMoney = JSON.parse(getjson); //ローカルストレージから読み込む
-      this.newSetting();
+      this.hiMoney = JSON.parse(getjson); //ローカルストレージから読み込む
+      //this.newSetting();
     }
     this.save(); //ローカルストレージに保存
   }
@@ -43,7 +43,7 @@ class Setting {
           memo:'毎週水曜に４００円取られる人',
           startDate:20221201, //開始日
           num:[3],
-          sum:0, //金額 支出ならマイナス値
+          sum:-400, //金額 支出ならマイナス値
         },
       ],
       record:{},

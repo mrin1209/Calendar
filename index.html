@@ -54,12 +54,15 @@
       </tbody>
     </table> 
 
-    <div class="moneyInput">
+    <div class="moneyInfoBox">
       <ul class="dateInfo">
-        <li>2022<br>12/9</li>
+        <li class="moneyInputDate">2022<br>12/9</li>
         <li class="dateMoney"></li>
       </ul>
+      <div class="border">使用履歴</div>
       <ul class="moneyList"></ul>
+      <div class="border">固定費</div>
+      <ul class="fixedList"></ul>
       <div class="addMoney">+</div>
     </div>
   </section>
@@ -79,42 +82,26 @@
 
   <section class="main input">
     <ul class="inputTab headerMenu">
-      <li>収入</li>
-      <li class="inputSelect">支出</li>
+      <li class="headerMenu inputTabadd">収入</li> 
+      <li class="headerMenu inputTabsub inputSelect">支出</li>
     </ul>
     <div class="inputList">
-      <input type="number" class="inputMoney" placeholder="金額"><span>円</span>
-      <input type="date" class="inputDate" placeholder="日付">
-      <input type="text" class="inputMemo" placeholder="メモ">
+      <input type="number" class="red inputMoney border" placeholder="金額"><span>円</span>
+      <input type="date" class="inputDate border" placeholder="日付">
+      <select name="frequency" class="border">
+        <option value="">毎日</option>
+        <option value="" selected>今日だけ</option>
+        <option value="">1週間に1回</option>
+        <option value="">月に1回</option>
+        <option value="">年に1回</option>
+    </select>
+      <input type="text" class="inputMemo border" placeholder="メモ">
       <p class="errorMessage"></p>
     </div>
-    <table class="inputKey">
-      <tr>
-        <td>7</td>
-        <td>8</td>
-        <td>9</td>
-        <td>÷</td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>5</td>
-        <td>6</td>
-        <td>×</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-        <td>-</td>
-      </tr>
-      <tr>
-        <td>0</td>
-        <td>.</td>
-        <td>←</td>
-        <td>+</td>
-      </tr>
-    </table>
-    <button class="headerMenu btn inputBtn">完了</button>
+    <div class="inputBtnList">
+      <button class="headerMenu btn closeBtn">閉じる</button>
+      <button class="headerMenu btn inputBtn">完了</button>
+    </div>
   </section>
 
   <div class="menu btnList">
