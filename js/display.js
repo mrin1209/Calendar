@@ -31,6 +31,14 @@ class Display {
         let moneyBox = document.createElement('p');
         moneyBox.className = 'money';
 
+        // 現在の所持金
+        if (weeks[i][j].currentMoney != undefined) {
+          let currentMoney = document.createElement('p');
+          currentMoney.textContent = `${weeks[i][j].currentMoney}円`;
+          currentMoney.className = 'blue';
+          moneyBox.appendChild(currentMoney);
+        }
+
         // 増加額
         let addMoney = document.createElement('p');
         if (date.className != 'other') {

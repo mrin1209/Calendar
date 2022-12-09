@@ -109,8 +109,3 @@ td p {
   background-color: rgb(28, 148, 112);
   color: rgb(234, 243, 245);
 }
-
-.border {
-  border-bottom: solid 1px gray;
-  margin-bottom: 10px;
-}

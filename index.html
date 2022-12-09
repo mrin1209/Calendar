@@ -79,13 +79,14 @@
 
   <section class="main input">
     <ul class="inputTab headerMenu">
-      <li class="inputSelect">収入</li>
-      <li>支出</li>
+      <li>収入</li>
+      <li class="inputSelect">支出</li>
     </ul>
     <div class="inputList">
-      <input type="number" class="border inputMoney" placeholder="金額">
-      <input type="date" class="border inputDate" placeholder="日付">
-      <input type="text" class="border inputMemo" placeholder="メモ">
+      <input type="number" class="inputMoney" placeholder="金額"><span>円</span>
+      <input type="date" class="inputDate" placeholder="日付">
+      <input type="text" class="inputMemo" placeholder="メモ">
+      <p class="errorMessage"></p>
     </div>
     <table class="inputKey">
       <tr>
@@ -109,10 +110,11 @@
       <tr>
         <td>0</td>
         <td>.</td>
-        <td>=</td>
+        <td>←</td>
         <td>+</td>
       </tr>
     </table>
+    <button class="headerMenu btn inputBtn">完了</button>
   </section>
 
   <div class="menu btnList">

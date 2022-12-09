@@ -2,7 +2,7 @@ const setting = new Setting();
 
 const today = new Date();
 const toYear =today.getFullYear();
-const toMonth  = today.getMonth();
+const toMonth  = today.getMonth() +1;
 const toDate =  today.getDate();
 let year = toYear;
 let month = toMonth;
@@ -33,7 +33,7 @@ function changeScreen(target) {
     element.classList.remove('select');
   });
   // 年月表示
-  title.textContent = `${year}/${month + 1}月`;
+  title.textContent = `${year}/${month}月`;
   document.querySelectorAll(`.${target}`).forEach(function(element) {
     element.classList.add('select');
   });
@@ -58,17 +58,17 @@ document.addEventListener('click',function(e) {
   switch (e.target.className.split(' ')[0]) {
     case 'prev': //前へ
       month--
-      if(month < 0){
-        year--
-        month = 11
+      if(month < 1){
+        year--;
+        month = 12;
       }
       changeScreen(screenMode);
       break
     case 'next': //次へ
       month++
-      if(month > 11){
-        year++
-        month = 0
+      if(month > 12){
+        year++;
+        month = 1;
       }
       changeScreen(screenMode);
       break

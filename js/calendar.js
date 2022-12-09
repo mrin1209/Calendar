@@ -45,6 +45,7 @@ class Calendar {
       })
     })
   }
+
   createCalendar(year,month) {
     let dates = [];
     
@@ -110,4 +111,7 @@ class Calendar {
 その月の使用額と貯金額を参照できる
 数値入力の際に演算子を使用できる。
 TODAYボタン
+定期収入入力ボタン
+編集　削除
+その日の所持金入力ボタン
 */
