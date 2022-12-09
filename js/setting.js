@@ -34,7 +34,7 @@ class Setting {
         {
           frequency:"month", //頻度
           memo:'お小遣い', //メモ
-          startDate:20221220, //開始日
+          startDate:20221201, //開始日
           num:[1],
           sum:5000, //金額 支出ならマイナス値
         },

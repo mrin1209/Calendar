@@ -27,7 +27,7 @@ class Money {
       weeks[i][j].add = 0;
       weeks[i][j].sub = 0;
       setting.hiMoney.receipts.map((receipt)=>{
-        if (`${year}${adjustMonth}${adjustDate}` > receipt.startDate) { //開始日より後なら表示
+        if (`${year}${adjustMonth}${adjustDate}` >= receipt.startDate) { //開始日より後なら表示
           switch (receipt.frequency) {
             case "date":
               change(receipt,weeks[i][j]);
