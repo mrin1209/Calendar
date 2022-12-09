@@ -7,9 +7,8 @@
 }
 
 .money {
-  text-align: left;
   position: absolute;
-  bottom: 1em;
+  bottom: 0;
   font-size: 12px;
 }
 
