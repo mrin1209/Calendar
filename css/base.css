@@ -115,4 +115,5 @@ td p {
 .border {
   width: 100%;
   border-bottom: solid 1px gray;
+  margin-bottom: 30px;
 }

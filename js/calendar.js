@@ -71,9 +71,9 @@ class Calendar {
     let dates = [];
     
     // 前月の最後の日付を取得
-    const d = new Date(year,month,0).getDate();
+    const d = new Date(year,month-1,0).getDate();
     // 今月の最初の曜日を取得
-    const n = new Date(year,month,1).getDay();
+    const n = new Date(year,month-1,1).getDay();
     for (let i = 0; i < n; i++) {
       dates.unshift({
         date:d - i,

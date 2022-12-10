@@ -23,10 +23,10 @@ const input = new Input();
 
 while (`${loadYear}${loadMonth}` != `${toYear}${toMonth}`) {
   calendar.createCalendar(loadYear,loadMonth);
-  loadMonth++
-  if(loadMonth > 11){
-    loadYear++
-    loadMonth = 0
+  loadMonth++;
+  if(loadMonth > 12){
+    loadYear++;
+    loadMonth = 1;
   }
 }
 

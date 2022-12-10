@@ -79,8 +79,8 @@ class Money {
     }
 
     function moneyHistory(year,month,date,weeksDate) {
-      if (setting.hiMoney.history[`${year}-${month}-${date}`]) {
-        setting.hiMoney.history[`${year}-${month}-${date}`].map((receipt)=>{
+      if (setting.hiMoney.history[`${year}${month}${date}`]) {
+        setting.hiMoney.history[`${year}${month}${date}`].map((receipt)=>{
           change(receipt,weeksDate,weeksDate.history);
         });
       }

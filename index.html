@@ -86,8 +86,10 @@
       <li class="headerMenu inputTabsub inputSelect">支出</li>
     </ul>
     <div class="inputList">
-      <input type="number" class="red inputMoney border" placeholder="金額"><span>円</span>
-      <input type="date" class="inputDate border" placeholder="日付">
+      <input type="number" class="red inputMoney border" placeholder="金額"><span class="unit">円</span>
+      <span class="placeholder">日付</span><input type="date" class="inputDate">
+      <div class="border"></div>
+      <input type="text" class="inputMemo border" placeholder="メモ">
       <select name="frequency" class="border">
         <option value="">毎日</option>
         <option value="" selected>今日だけ</option>
@@ -95,7 +97,10 @@
         <option value="">月に1回</option>
         <option value="">年に1回</option>
     </select>
-      <input type="text" class="inputMemo border" placeholder="メモ">
+    <span class="placeholder">開始日</span><input type="date">
+    <div class="border"></div>
+    <span class="placeholder">終了日</span><input type="date">
+    <div class="border"></div>
       <p class="errorMessage"></p>
     </div>
     <div class="inputBtnList">

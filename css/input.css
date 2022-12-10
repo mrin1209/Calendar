@@ -9,12 +9,16 @@
 .inputList input,
 .inputList select {
   padding: 0 1em;
-  margin-bottom: 30px;
 }
 
-.inputList span{
+.unit {
   position: absolute;
   right: calc(10px + 1em);
+}
+
+.placeholder {
+  color: gray;
+  padding-left: 1em;
 }
 
 .inputTab,
