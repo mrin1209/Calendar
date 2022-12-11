@@ -87,7 +87,6 @@ class Input {
   }
 
   changeFrequency() {
-    console.log(this.inputForm.frequency.selectedIndex);
     if (this.inputForm.frequency.selectedIndex === 1) {
       this.loopMoney.style.display = 'none';
       this.moneyMode = 'history';

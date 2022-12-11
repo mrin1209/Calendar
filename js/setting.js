@@ -4,8 +4,8 @@ class Setting {
     if (getjson === null) { //新規開始なら新たにオブジェクトを生成
       this.newSetting();
     } else {
-      //this.hiMoney = JSON.parse(getjson); //ローカルストレージから読み込む
-      this.newSetting();
+      this.hiMoney = JSON.parse(getjson); //ローカルストレージから読み込む
+      //this.newSetting();
     }
     this.save(); //ローカルストレージに保存
   }

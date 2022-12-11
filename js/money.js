@@ -58,6 +58,7 @@ class Money {
           }
         }
       });
+      setting.save();
     }
 
     function change(receipt,date,history,index) {
