@@ -5,7 +5,7 @@ class Setting {
       this.newSetting();
     } else {
       this.hiMoney = JSON.parse(getjson); //ローカルストレージから読み込む
-      //this.newSetting();
+      // this.newSetting();
     }
     this.save(); //ローカルストレージに保存
   }

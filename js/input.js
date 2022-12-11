@@ -70,8 +70,10 @@ class Input {
         input.editMode = false;
         input.closeBtn.textContent = '閉じる';
         if (input.moneyMode === 'history') {
+          console.log(setting.hiMoney.history[`${year}${( '00' + (month) ).slice( -2 )}${( '00' + (weeks[calendar.moneyLine][calendar.moneyColumn].date) ).slice( -2 )}`]);
           setting.hiMoney.history[`${year}${( '00' + (month) ).slice( -2 )}${( '00' + (weeks[calendar.moneyLine][calendar.moneyColumn].date) ).slice( -2 )}`].splice(input.editNum,1);
         } else {
+          console.log(setting.hiMoney.receipts);
           setting.hiMoney.receipts.splice([weeks[calendar.moneyLine][calendar.moneyColumn].fixed[input.editNum].index],1);
         }
         moneyInfoBox.classList.remove('active');
@@ -119,31 +121,31 @@ class Input {
       input.editMode = true;
       input.closeBtn.textContent = '消去';
       input.editNum = [].slice.call(clickElement.children).indexOf(clickMoney);
-      let frequencyValue = setting.hiMoney.receipts[weeks[calendar.moneyLine][calendar.moneyColumn].fixed[input.editNum].index].frequency;
-      if (input.inputForm.frequency.selectedIndex === 1) {
-        frequencyValue = 1;
-      } else {
+      if (input.moneyMode === 'fixed') {
+        let frequencyValue = setting.hiMoney.receipts[weeks[calendar.moneyLine][calendar.moneyColumn].fixed[input.editNum].index].frequency;
         editInputDate = setting.hiMoney.receipts[weeks[calendar.moneyLine][calendar.moneyColumn].fixed[input.editNum].index].startDate;
-        const editInputYear = editInputDate.substring(0, 4);  //2022
-        const editInpuMmonth = editInputDate.substring(4, 6); //02
-        const editInputDay = editInputDate.substring(6, 8);   //05
-        editInputDate = `${editInputYear}-${editInpuMmonth}-${editInputDay}`
-        switch (frequencyValue) {
-          case 'date':
-            frequencyValue = 0;
-            break;
-          case 'week':
-            frequencyValue = 2;
-            break;
-          case 'month':
-            frequencyValue = 3;
-            break;
-          case 'year':
-            frequencyValue = 4;
-            break;
-        }
+          const editInputYear = editInputDate.substring(0, 4);  //2022
+          const editInpuMmonth = editInputDate.substring(4, 6); //02
+          const editInputDay = editInputDate.substring(6, 8);   //05
+          editInputDate = `${editInputYear}-${editInpuMmonth}-${editInputDay}`
+          switch (frequencyValue) {
+            case 'date':
+              frequencyValue = 0;
+              break;
+            case 'week':
+              frequencyValue = 2;
+              break;
+            case 'month':
+              frequencyValue = 3;
+              break;
+            case 'year':
+              frequencyValue = 4;
+              break;
+          }
+        input.inputMoneyValue(editInputMoney,editInputDate,editInputMemo,frequencyValue);
+      } else {
+        input.inputMoneyValue(editInputMoney,editInputDate,editInputMemo,1);
       }
-      input.inputMoneyValue(editInputMoney,editInputDate,editInputMemo,frequencyValue);
     } else {
       input.editMode = false;
       input.closeBtn.textContent = '閉じる';
