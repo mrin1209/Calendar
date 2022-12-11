@@ -56,6 +56,7 @@ input {
   text-align: center;
 }
 
-.loopMoney {
+.loopMoney,
+.loopMoneyLimit {
   display: none;
 }

@@ -102,8 +102,15 @@
       </select>
       <div class="border"></div>
       <div class="loopMoney">
-        <span class="placeholder">終了日</span><input type="date" name="loopEnd">
+        <span class="placeholder">期間</span><select name="loopLimit">
+          <option value="forever" name="forever" selected>ずっと</option>
+          <option value="limit" name="limit">日付</option>
+        </select>
         <div class="border"></div>
+        <div class="loopMoneyLimit">
+          <span class="placeholder">終了日</span><input type="date" name="loopEnd">
+          <div class="border"></div>
+        </div>
       </div>
       </form>
       <p class="errorMessage"></p>
