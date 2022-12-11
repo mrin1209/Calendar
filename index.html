@@ -86,24 +86,26 @@
       <li class="headerMenu inputTabsub inputSelect">支出</li>
     </ul>
     <div class="inputList">
-      <span class="placeholder">金額</span><input type="number" class="red inputMoney"><span class="unit">円</span>
+      <form name="input">
+        <span class="placeholder">金額</span><input type="number" class="red" name="money"><span class="unit">円</span>
+        <div class="border"></div>
+        <span class="placeholder">日付</span><input type="date" name="date">
+        <div class="border"></div>
+        <span class="placeholder">メモ</span><input type="text" name="memo">
+        <div class="border"></div>
+        <span class="placeholder">繰り返し</span><select name="frequency">
+          <option value="date" name="date">毎日</option>
+          <option selected name="todate">今日だけ</option>
+          <option value="week" name="week">1週間に1回</option>
+          <option value="month" name="month">月に1回</option>
+          <option value="year" name="year">年に1回</option>
+      </select>
       <div class="border"></div>
-      <span class="placeholder">日付</span><input type="date" class="inputDate">
-      <div class="border"></div>
-      <span class="placeholder">メモ</span><input type="text" class="inputMemo">
-      <div class="border"></div>
-      <span class="placeholder">繰り返し</span><select name="frequency">
-        <option value="">毎日</option>
-        <option value="" selected>今日だけ</option>
-        <option value="">1週間に1回</option>
-        <option value="">月に1回</option>
-        <option value="">年に1回</option>
-    </select>
-    <div class="border"></div>
-    <span class="placeholder">開始日</span><input type="date">
-    <div class="border"></div>
-    <span class="placeholder">終了日</span><input type="date">
-    <div class="border"></div>
+      <div class="loopMoney">
+        <span class="placeholder">終了日</span><input type="date" name="loopEnd">
+        <div class="border"></div>
+      </div>
+      </form>
       <p class="errorMessage"></p>
     </div>
     <div class="inputBtnList">

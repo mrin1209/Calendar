@@ -26,30 +26,30 @@ class Money {
     function calculation(i,j,year,adjustMonth,adjustDate) {
       weeks[i][j].add = 0;
       weeks[i][j].sub = 0;
-      setting.hiMoney.receipts.map((receipt)=>{
+      setting.hiMoney.receipts.map((receipt,index)=>{
         if (`${year}${adjustMonth}${adjustDate}` >= receipt.startDate) { //開始日より後なら表示
           switch (receipt.frequency) {
             case "date":
-              change(receipt,weeks[i][j],weeks[i][j].fixed);
+              change(receipt,weeks[i][j],weeks[i][j].fixed,index);
               break;
             case "week":
               receipt.num.map((value)=>{
                 if (value == j) {
-                  change(receipt,weeks[i][j],weeks[i][j].fixed);
+                  change(receipt,weeks[i][j],weeks[i][j].fixed,index);
                 }
               })
               break;
             case "month":
               receipt.num.map((value)=>{
                 if (value == weeks[i][j].date) {
-                  change(receipt,weeks[i][j],weeks[i][j].fixed);
+                  change(receipt,weeks[i][j],weeks[i][j].fixed,index);
                 }
               })
               break;
             case "year":
               receipt.num.map((value)=>{
                 if (value[0] == month && value[1] == weeks[i][j].date) {
-                  change(receipt,weeks[i][j],weeks[i][j].fixed);
+                  change(receipt,weeks[i][j],weeks[i][j].fixed,index);
                 }
               })
               break;
@@ -60,7 +60,7 @@ class Money {
       });
     }
 
-    function change(receipt,date,history) {
+    function change(receipt,date,history,index) {
       currentMoney += receipt.sum;
       switch (Math.sign(receipt.sum)) {
         case -1:
@@ -75,13 +75,14 @@ class Money {
       history.push({
         memo:receipt.memo,
         sum:receipt.sum,
+        index:index,
       })
     }
 
     function moneyHistory(year,month,date,weeksDate) {
       if (setting.hiMoney.history[`${year}${month}${date}`]) {
         setting.hiMoney.history[`${year}${month}${date}`].map((receipt)=>{
-          change(receipt,weeksDate,weeksDate.history);
+          change(receipt,weeksDate,weeksDate.history,0);
         });
       }
     }

@@ -55,3 +55,7 @@ input {
   color: red;
   text-align: center;
 }
+
+.loopMoney {
+  display: none;
+}
