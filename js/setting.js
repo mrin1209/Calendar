@@ -29,6 +29,9 @@ class Setting {
     this.hiMoney = {
       startMoney:0, //開始日の所持金
       startDate:20221201, //開始日
+      current:{
+        20221220:400,
+      },
       receipts:[],
       record:{},
       history:{}
