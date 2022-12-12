@@ -37,7 +37,7 @@
   width: 300px;
   height: fit-content;
   padding: 10px;
-  padding-bottom: 50px;
+  padding-bottom: 60px;
   border-radius: 10px;
   background-color: white;
   box-shadow: 0 0 16px gray;
@@ -60,7 +60,8 @@
 }
 
 .dateMoney {
-  margin-left: 25%;
+  width: 100%;
+  text-align: center;
   font-size: 2em;
 }
 
