@@ -89,7 +89,7 @@ class Money {
     }
 
     function currentFixedMoney(year,month,date,weeksDate) {
-      if (setting.hiMoney.current[`${year}${month}${date}`]) {
+      if (setting.hiMoney.current[`${year}${month}${date}`] || setting.hiMoney.current[`${year}${month}${date}`] == 0) {
         currentMoney = setting.hiMoney.current[`${year}${month}${date}`];
         weeksDate.currentMoney = currentMoney;
       }

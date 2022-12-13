@@ -1,7 +1,6 @@
 class Calendar {
   constructor() {
     const menu = document.querySelectorAll('.menu');
-    const dateMoney = document.querySelector('.dateMoney');
     // 日付をタップしたらその日の詳細を表示
     dateList.forEach(function(element) {
       element.addEventListener('click',function(e) {

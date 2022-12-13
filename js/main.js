@@ -8,19 +8,20 @@ let year = toYear;
 let month = toMonth;
 let weeks;
 let screenMode = 'start';
-let loadYear = String(setting.hiMoney.startDate).slice(0, 4);
-let loadMonth = String(setting.hiMoney.startDate).slice(4, 6);
 const moneyInfoBox = document.querySelector('.moneyInfoBox');
 const title = document.querySelector('.title');
 const dateList = document.querySelectorAll('.dateList tr');
 const moneyList = document.querySelector('.moneyList');
 const fixedList = document.querySelector('.fixedList');
+const dateMoney = document.querySelector('.dateMoney');
 
 const money = new Money();
 const display = new Display();
 const calendar = new Calendar(year,month);
 const input = new Input();
 
+let loadYear = String(setting.hiMoney.startDate).slice(0, 4);
+let loadMonth = String(setting.hiMoney.startDate).slice(4, 6);
 while (`${loadYear}${loadMonth}` != `${toYear}${toMonth}`) {
   calendar.createCalendar(loadYear,loadMonth);
   loadMonth++;

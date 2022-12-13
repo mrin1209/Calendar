@@ -27,11 +27,8 @@ class Setting {
       ※numはmapメソッドを使用しているため配列に格納して記述 frequencyが"year"の場合は二次元配列にする
     */
     this.hiMoney = {
-      startMoney:0, //開始日の所持金
       startDate:20221201, //開始日
-      current:{
-        20221220:400,
-      },
+      current:{},
       receipts:[],
       record:{},
       history:{}
