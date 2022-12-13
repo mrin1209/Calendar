@@ -1,0 +1,9 @@
+/* スマホのみ */
+@media screen and (max-width: 900px) {
+
+}
+
+/* PCのみ */
+@media screen and (min-width: 901px) {
+
+}
