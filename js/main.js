@@ -20,17 +20,6 @@ const display = new Display();
 const calendar = new Calendar(year,month);
 const input = new Input();
 
-let loadYear = String(setting.hiMoney.startDate).slice(0, 4);
-let loadMonth = String(setting.hiMoney.startDate).slice(4, 6);
-while (`${loadYear}${loadMonth}` != `${toYear}${toMonth}`) {
-  calendar.createCalendar(loadYear,loadMonth);
-  loadMonth++;
-  if(loadMonth > 12){
-    loadYear++;
-    loadMonth = 1;
-  }
-}
-
 function changeScreen(target) {
   document.querySelectorAll(`.select`).forEach(function(element) {
     element.classList.remove('select');
@@ -42,6 +31,9 @@ function changeScreen(target) {
   });
   weeks = calendar.createCalendar(year,month);
   switch (target) {
+    case 'start':
+      display.displayStart(weeks,year,month);
+      break;
     case 'calendar':
       display.displayCalendar(weeks);
       break;
@@ -50,9 +42,6 @@ function changeScreen(target) {
       break;
     case 'setting':
       display.displaySetting(weeks,year,month);
-      break;
-    default:
-      display.displayStart(weeks,year,month);
       break;
   }
 }

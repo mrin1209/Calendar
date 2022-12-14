@@ -79,6 +79,7 @@ class Input {
 
     dateMoney.addEventListener('click',function(e) {
       input.currentInputMode = true;
+      input.oldMoneyMode = 'current';
       input.moneyEditScreen(e.target,dateMoney);
     })
 
@@ -270,10 +271,16 @@ class Input {
             inputMoney = -(inputMoney);
           }
           if (input.editMode) {
-            if (input.oldMoneyMode === 'history') {
-              setting.hiMoney.history[`${year}${( '00' + (month) ).slice( -2 )}${( '00' + (weeks[calendar.moneyLine][calendar.moneyColumn].date) ).slice( -2 )}`].splice(input.editNum,1);
-            } else {
-              setting.hiMoney.receipts.splice([weeks[calendar.moneyLine][calendar.moneyColumn].fixed[input.editNum].index],1);
+            switch (input.oldMoneyMode) {
+              case 'history':
+                setting.hiMoney.history[`${year}${( '00' + (month) ).slice( -2 )}${( '00' + (weeks[calendar.moneyLine][calendar.moneyColumn].date) ).slice( -2 )}`].splice(input.editNum,1);
+                break
+              case 'fixed':
+                setting.hiMoney.receipts.splice([weeks[calendar.moneyLine][calendar.moneyColumn].fixed[input.editNum].index],1);
+                break
+              case 'current':
+                delete setting.hiMoney.current[`${year}${( '00' + (month) ).slice( -2 )}${( '00' + (weeks[calendar.moneyLine][calendar.moneyColumn].date) ).slice( -2 )}`]
+                break
             }
           }
           if (input.moneyMode === 'history') {

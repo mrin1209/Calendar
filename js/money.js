@@ -58,7 +58,6 @@ class Money {
           }
         }
       });
-      setting.save();
     }
 
     function change(receipt,date,history,index) {
@@ -112,7 +111,7 @@ class Money {
       }
     }
     // 今月の残高を保存
-    setting.hiMoney.record = {...setting.hiMoney.record,...{[`${year}${adjustMonth}`]:currentMoney}}
+    setting.hiMoney.record[`${year}${adjustMonth}`] = currentMoney;
     setting.save();//ローカルストレージに保存
     this.currentMoney = this.receiptMoney - this.expenseMoney;
   }
