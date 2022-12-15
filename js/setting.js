@@ -12,6 +12,10 @@ class Setting {
       }
     }
     this.save(); //ローカルストレージに保存
+
+    window.addEventListener('resize', () => {
+      document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`);
+    });
   }
 
    //ローカルストレージに保存
