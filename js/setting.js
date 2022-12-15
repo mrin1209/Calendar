@@ -1,5 +1,6 @@
 class Setting {
   constructor() {
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`);
     const version = 1.0;
     const getjson = localStorage.getItem('HiMoney');
     if (getjson === null) { //新規開始なら新たにオブジェクトを生成
@@ -27,6 +28,12 @@ class Setting {
       record:{},
       history:{}
     }
+  }
+
+  // 今月の残高を保存
+  saveRecord(year,month,currentMoney) {
+    this.hiMoney.record[`${year}${month}`] = currentMoney;
+    this.save();//ローカルストレージに保存
   }
 
   reload() {

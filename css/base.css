@@ -82,7 +82,7 @@ td p {
 
 .main {
   position: relative;
-  height: calc(100vh - 100px);
+  height: calc(var(--vh) - 100px);
   display: none;
 }
 
