@@ -1,11 +1,14 @@
 class Setting {
   constructor() {
+    const version = 1.0;
     const getjson = localStorage.getItem('HiMoney');
     if (getjson === null) { //新規開始なら新たにオブジェクトを生成
-      this.newSetting();
+      this.newSetting(version);
     } else {
       this.hiMoney = JSON.parse(getjson); //ローカルストレージから読み込む
-      //this.newSetting();
+      if (this.hiMoney.version != version) {
+        this.newSetting(version);
+      }
     }
     this.save(); //ローカルストレージに保存
   }
@@ -16,8 +19,9 @@ class Setting {
       localStorage.setItem('HiMoney', setjson);
   }
 
-  newSetting() {
+  newSetting(version) {
     this.hiMoney = {
+      version:version,
       current:{},
       receipts:[],
       record:{},
