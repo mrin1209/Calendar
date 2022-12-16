@@ -29,33 +29,57 @@ class Display {
 
         // 金額
         let moneyBox = document.createElement('p');
-        moneyBox.className = 'money';
 
-        // 現在の所持金
-        if (weeks[i][j].currentMoney != undefined) {
+        if (numMode === true) {
+          moneyBox.className = 'numMoney';
+          // 現在の所持金
           let currentMoney = document.createElement('p');
-          currentMoney.textContent = `${weeks[i][j].currentMoney}円`;
+          currentMoney.textContent = weeks[i][j].currentMoney != undefined ? `${weeks[i][j].currentMoney}円` : "";
           currentMoney.className = 'blue';
           moneyBox.appendChild(currentMoney);
-        }
-
-        // 増加額
-        let addMoney = document.createElement('p');
-        if (date.className != 'other') {
+  
+          // 増加額
+          let addMoney = document.createElement('p');
           addMoney.textContent = weeks[i][j].add ? `${weeks[i][j].add}円` : "";
-        }
-        addMoney.className = 'green';
-        moneyBox.appendChild(addMoney);
-
-        // 減少額
-        let subMoney = document.createElement('p');
-        if (date.className != 'other') {
+          addMoney.className = 'green';
+          moneyBox.appendChild(addMoney);
+  
+          // 減少額
+          let subMoney = document.createElement('p');
           subMoney.textContent = weeks[i][j].sub ? `${weeks[i][j].sub}円` : "";
-        }
-        subMoney.className = 'red';
-        moneyBox.appendChild(subMoney);
+          subMoney.className = 'red';
+          moneyBox.appendChild(subMoney);
+  
+          date.appendChild(moneyBox);
+        } else {
+          moneyBox.className = 'markMoney';
+          // 現在の所持金
+          if (date.className != 'other') {
+            //減少額
+            if (weeks[i][j].sub != 0) {
+              let subMoney = document.createElement('span');
+              subMoney.textContent = "●";
+              subMoney.className = 'red';
+              moneyBox.appendChild(subMoney);
+            }
+            //所持金
+            if (weeks[i][j].currentMoney != undefined) {
+              let currentMoney = document.createElement('span');
+              currentMoney.textContent = `●`;
+              currentMoney.className = 'blue';
+              moneyBox.appendChild(currentMoney);
+            }
+            //増加額
+            if (weeks[i][j].add != 0) {
+              let addMoney = document.createElement('span');
+              addMoney.textContent = "●";
+              addMoney.className = 'green';
+              moneyBox.appendChild(addMoney);
+            }
 
-        date.appendChild(moneyBox);
+            date.appendChild(moneyBox);
+          }  
+        }
       }
     }
   }

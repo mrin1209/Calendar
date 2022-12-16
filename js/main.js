@@ -8,6 +8,7 @@ let year = toYear;
 let month = toMonth;
 let weeks;
 let screenMode = 'start';
+let numMode = false;
 const moneyInfoBox = document.querySelector('.moneyInfoBox');
 const title = document.querySelector('.title');
 const dateList = document.querySelectorAll('.dateList tr');

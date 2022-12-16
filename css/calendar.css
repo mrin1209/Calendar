@@ -10,22 +10,29 @@
   opacity: 0.6;
 }
 
-.money {
+.numMoney {
   position: absolute;
   bottom: 5px;
   font-size: 12px;
 }
 
+.markMoney {
+  position: absolute;
+  bottom: 5px;
+  font-size: 12px;
+  display: flex;
+}
+
 .green {
-  color: rgb(0, 182, 24);
+  color: #28c131;
 }
 
 .red {
-  color: red;
+  color: #fc4645;
 }
 
 .blue {
-  color: rgb(78, 125, 255);
+  color: #fcaf25;
 }
 
 .moneyInfoBox {
