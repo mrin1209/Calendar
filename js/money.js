@@ -98,9 +98,9 @@ class Money {
       for (let j = 0; j < 7; j++) {
         // １桁の場合０を追加 1→01
         adjustDate = ( '00' + weeks[i][j].date ).slice( -2 );
+        weeks[i][j].history = [];
+        weeks[i][j].fixed = [];
         if (weeks[i][j].other === false) { //本月ではなかった場合金額非表示
-          weeks[i][j].history = [];
-          weeks[i][j].fixed = [];
           currentFixedMoney(year,adjustMonth,adjustDate,weeks[i][j]);
           calculation(i,j,year,adjustMonth,adjustDate);
           moneyHistory(year,adjustMonth,adjustDate,weeks[i][j]);
