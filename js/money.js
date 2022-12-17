@@ -30,26 +30,42 @@ class Money {
         if (`${year}${adjustMonth}${adjustDate}` >= receipt.startDate && (`${year}${adjustMonth}${adjustDate}` <= receipt.endDate || receipt.endDate === false)) { //開始日より後なら表示
           switch (receipt.frequency) {
             case "date":
-              change(receipt,weeks[i][j],weeks[i][j].fixed,index);
+              weeks[i][j].fixed.push({
+                memo:receipt.memo,
+                sum:receipt.sum,
+                index:index,
+              })
               break;
             case "week":
               receipt.num.map((value)=>{
                 if (value == j) {
-                  change(receipt,weeks[i][j],weeks[i][j].fixed,index);
+                  weeks[i][j].fixed.push({
+                    memo:receipt.memo,
+                    sum:receipt.sum,
+                    index:index,
+                  })
                 }
               })
               break;
             case "month":
               receipt.num.map((value)=>{
                 if (value == weeks[i][j].date) {
-                  change(receipt,weeks[i][j],weeks[i][j].fixed,index);
+                  weeks[i][j].fixed.push({
+                    memo:receipt.memo,
+                    sum:receipt.sum,
+                    index:index,
+                  })
                 }
               })
               break;
             case "year":
               receipt.num.map((value)=>{
                 if (value[0] == month && value[1] == weeks[i][j].date) {
-                  change(receipt,weeks[i][j],weeks[i][j].fixed,index);
+                  weeks[i][j].fixed.push({
+                    memo:receipt.memo,
+                    sum:receipt.sum,
+                    index:index,
+                  })
                 }
               })
               break;
