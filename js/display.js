@@ -29,7 +29,7 @@ class Display {
 
         // 金額
         let moneyBox = document.createElement('p');
-
+        console.log(weeks[i][j]);
         if (numMode === true) {
           moneyBox.className = 'numMoney';
           // 現在の所持金
