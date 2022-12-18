@@ -3,6 +3,9 @@
 }
 
 .calendar td {
+  text-align: left;
+  line-height: 1.5em;
+  word-spacing: 1.5em;
   border-bottom: solid 1px rgb(212, 212, 212);
 }
 
@@ -31,11 +34,8 @@
 .fixedMoney {
   background-color: rgb(28, 148, 112);
   color: white;
-  margin: auto;
-  opacity: 0.7;
-  line-height: 30px;
-  width: 30px;
-  height: 30px;
+  width: 1.5em;
+  height: 1.5em;
   border-radius: 50%;
 }
 
