@@ -38,6 +38,14 @@ class Money {
                   sum:receipt.sum,
                   index:index,
                 });
+                switch (Math.sign(receipt.sum)) {
+                  case -1:
+                    money.expenseMoney -= receipt.sum;
+                    break
+                  case 1:
+                    money.receiptMoney += receipt.sum;
+                    break;
+                }
               }
               break;
             case "week":
