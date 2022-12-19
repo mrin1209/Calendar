@@ -30,11 +30,6 @@ class Display {
         // 金額
         let moneyBox = document.createElement('p');
 
-        if (weeks[i][j].fixed.length) {
-          dateNum.className = 'fixedMoney';
-          date.appendChild(dateNum);
-        }
-
         if (numMode === true) {
           moneyBox.className = 'numMoney';
           // 現在の所持金

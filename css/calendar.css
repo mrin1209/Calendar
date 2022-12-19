@@ -4,8 +4,6 @@
 
 .calendar td {
   text-align: left;
-  line-height: 1.5em;
-  word-spacing: 1.5em;
   border-bottom: solid 1px rgb(212, 212, 212);
 }
 
