@@ -38,6 +38,7 @@ class Money {
                   sum:receipt.sum,
                   index:index,
                 });
+                currentMoney += receipt.sum;
                 switch (Math.sign(receipt.sum)) {
                   case -1:
                     money.expenseMoney -= receipt.sum;
