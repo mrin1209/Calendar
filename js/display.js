@@ -90,6 +90,6 @@ class Display {
   }
 
   displaySetting() {
-
+    console.log(setting.hiMoney);
   }
 }
